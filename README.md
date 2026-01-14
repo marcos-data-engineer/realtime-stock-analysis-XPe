@@ -1,6 +1,6 @@
 # 📊 Análise de Ações em Tempo Real
 
-🚀 **Projeto**: Ferramenta de Análise Gráfica em Tempo Real de Ações Principais nos Mercados Brasileiro e Americano.
+🚀 **Projeto**: Ferramenta de Análise Gráfica em Tempo Real das Principais ações dos Mercados Brasileiro e Americano.
 
 ![Banner do Projeto](https://raw.githubusercontent.com/marcos-data-engineer/dataengineer.github.io/master/images/stocks.jpg)
 
