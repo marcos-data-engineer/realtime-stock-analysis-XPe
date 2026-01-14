@@ -120,8 +120,8 @@ Este projeto foi desenvolvido para criar uma **plataforma de análise de ações
 | Plataforma | Link |
 |-----------|------|
 | 🌐 **Portfólio** | [dataengineer.net.br](https://dataengineer.net.br/) |
-| 💻 **GitHub** | [@marcosvandrade](https://github.com/marcos-data-engineer) |
-| 🔗 **LinkedIn** | [Marcos Andrade](https://linkedin.com/in/marcos-data-engineer) |
+| 💻 **GitHub** | [marcos-data-engineer](https://github.com/marcos-data-engineer) |
+| 🔗 **LinkedIn** | [marcos-data-engineer](https://linkedin.com/in/marcos-data-engineer) |
 
 </div>
 
