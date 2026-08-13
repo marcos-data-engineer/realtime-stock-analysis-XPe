@@ -2,66 +2,65 @@ import streamlit as st
 import yfinance as yf
 from datetime import datetime, timedelta
 import plotly.graph_objs as go
-from streamlit_autorefresh import st_autorefresh
 
-# Lista de países e intervalos disponíveis para seleção
+# List of countries and intervals available for selection
 countries = ["Brazil", "United States"]
 intervals = [
     "1d",
     "1wk",
     "1mo",
-]  # Intervalos suportados pelo yfinance: 1 dia, 1 semana, 1 mês
+]  # Supported intervals by yfinance: 1 day, 1 week, 1 month
 
 start_date = datetime.now() - timedelta(days=30)
 end_date = datetime.now()
 
 
-# Buscar dados de ações com cache para evitar requisições redundantes à API
+# Fetch stock data with cache to avoid redundant API requests
 @st.cache_data()
 def fetch_stock_data(stock, from_date, to_date, interval):
     """
-    Recupera dados históricos de ações do Yahoo Finance.
+    Retrieve historical stock data from Yahoo Finance.
 
     Args:
-        stock (str): Símbolo do ticker da ação (ex: 'AAPL')
-        from_date (str): Data inicial no formato 'YYYY-MM-DD'
-        to_date (str): Data final no formato 'YYYY-MM-DD'
-        interval (str): Intervalo de dados ('1d', '1wk', '1mo')
+        stock (str): Ticker symbol (e.g. 'AAPL')
+        from_date (str): Start date in 'YYYY-MM-DD' format
+        to_date (str): End date in 'YYYY-MM-DD' format
+        interval (str): Data interval ('1d', '1wk', '1mo')
 
     Returns:
-        DataFrame: Dados históricos da ação com valores OHLC (Abertura, Máxima, Mínima, Fechamento)
+        DataFrame: Historical OHLC stock data (Open, High, Low, Close)
     """
     return yf.download(
         stock, start=from_date, end=to_date, interval=interval, progress=False
     )
 
 
-# Formata objeto datetime para representação em string
+# Format a datetime object to a string representation
 def format_date(dt, format="%Y-%m-%d"):
     """
-    Converte objeto datetime para formato string.
+    Convert a datetime object to a formatted string.
 
     Args:
-        dt (datetime): Objeto datetime a formatar
-        format (str): Cadeia de formato de data (padrão: 'YYYY-MM-DD')
+        dt (datetime): Datetime object to format
+        format (str): Date format string (default: 'YYYY-MM-DD')
 
     Returns:
-        str: String de data formatada
+        str: Formatted date string
     """
     return dt.strftime(format)
 
 
-# Gera gráfico de candlestick a partir de dados OHLC
+# Generate a candlestick chart from OHLC data
 def plot_candlestick(df, ticker="UNKNOWN"):
     """
-    Cria um gráfico de candlestick interativo a partir de dados OHLC.
+    Create an interactive candlestick chart from OHLC data.
 
     Args:
-        df (DataFrame): Dados da ação com colunas OHLC
-        ticker (str): Símbolo do ticker da ação para legenda do gráfico
+        df (DataFrame): Stock data with OHLC columns
+        ticker (str): Ticker symbol for the chart legend
 
     Returns:
-        Figure: Figura de gráfico de candlestick do Plotly
+        Figure: Plotly candlestick figure
     """
     trace1 = {
         "x": df.index,
@@ -80,61 +79,51 @@ def plot_candlestick(df, ticker="UNKNOWN"):
     return go.Figure(data=data, layout=layout)
 
 
-# Construir barra lateral com controles de entrada do usuário
+# Build sidebar with user input controls
 sidebar_placeholder = st.sidebar.empty()
-country_select = st.sidebar.selectbox("Selecione o país:", countries)
+country_select = st.sidebar.selectbox("Select Country:", countries)
 stocks = [
     "AAPL",
     "MSFT",
     "GOOGL",
-]  # Lista de ações - customize com os tickers desejados
-stock_select = st.sidebar.selectbox("Selecione a ação:", stocks)
-from_date = st.sidebar.date_input("Data Inicial:", start_date)
-to_date = st.sidebar.date_input("Data Final:", end_date)
-interval_select = st.sidebar.selectbox("Selecione o intervalo:", intervals)
-load_data = st.sidebar.checkbox("Carregar Dados")
+]  # List of stocks - customize with desired tickers
+stock_select = st.sidebar.selectbox("Select Stock:", stocks)
+from_date = st.sidebar.date_input("Start Date:", start_date)
+to_date = st.sidebar.date_input("End Date:", end_date)
+interval_select = st.sidebar.selectbox("Select Interval:", intervals)
+load_data = st.sidebar.checkbox("Show Raw Data")
 
-# Contêineres placeholder para renderização dinâmica de gráficos
+
+# Placeholder containers for dynamic chart rendering
 chart_line = st.empty()
 chart_candlestick = st.empty()
 
-# Cabeçalho e título da página
-st.title("Análise Gráfica de Ações em Tempo Real")
-st.header("Ações")
-st.subheader("Análise Gráfica")
+# Page header and title
+st.title("Real-time Stock Chart Analysis")
+st.header("Stock Overview")
+st.subheader("Interactive Analysis")
 
-# Atualizar página a cada 5 segundos (máximo 10000 atualizações)
-count = st_autorefresh(interval=5000, limit=10000, key="fizzbuzzcounter")
+if st.sidebar.button("Refresh Data"):
+    st.experimental_rerun()
 
-if count == 0:
-    st.write("Contagem é zero")
-elif count % 3 == 0 and count % 5 == 0:
-    st.write("FizzBuzz")
-elif count % 3 == 0:
-    st.write("Fizz")
-elif count % 5 == 0:
-    st.write("Buzz")
-else:
-    st.write(f"Contagem: {count}")
-
-# Validar intervalo de datas e buscar/exibir dados de ações
+# Validate date range and fetch/display stock data
 if from_date > to_date:
-    st.sidebar.error("Data Inicial não pode ser maior que Data Final")
+    st.sidebar.error("Start Date cannot be later than End Date")
 else:
     df = fetch_stock_data(
         stock_select, format_date(from_date), format_date(to_date), interval_select
     )
     try:
-        # Exibir gráfico de candlestick
+        # Display candlestick chart
         fig = plot_candlestick(df, stock_select)
         chart_candlestick.plotly_chart(fig)
 
-        # Exibir gráfico de linha do preço de fechamento
+        # Display closing price line chart
         chart_line.line_chart(df["Close"])
 
-        # Opcionalmente exibir tabela de dados brutos
+        # Optionally display raw data table
         if load_data:
-            st.subheader("Dados")
+            st.subheader("Data")
             st.dataframe(df)
     except Exception as e:
-        st.error(f"Erro ao carregar dados da ação: {e}")
+        st.error(f"Error loading stock data: {e}")

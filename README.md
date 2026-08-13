@@ -1,55 +1,55 @@
-# 📊 Análise de Ações em Tempo Real
+# 📊 Real-time Stock Analysis
 
-🚀 **Projeto**: Ferramenta de Análise Gráfica em Tempo Real das Principais ações dos Mercados Brasileiro e Americano.
+🚀 **Project**: Real-time Charting Tool for major stocks in the Brazilian and US markets.
 
-![Banner do Projeto](https://raw.githubusercontent.com/marcos-data-engineer/dataengineer.github.io/master/images/stocks.jpg)
+![Project Banner](https://raw.githubusercontent.com/marcos-data-engineer/dataengineer.github.io/master/images/stocks.jpg)
 
-## 📝 Descrição do Projeto
+## 📝 Project Description
 
-Este projeto foi desenvolvido para criar uma **plataforma de análise de ações** rápida, intuitiva e sem distrações desnecessárias como pop-ups ou assinaturas obrigatórias. Utilizando dados em tempo real de APIs financeiras consolidadas, a ferramenta permite que investidores realizem suas análises de forma eficiente e sem interrupções.
+This project provides a fast, intuitive, and distraction-free **stock analysis platform**. Using real-time data from well-known financial APIs, it enables investors to perform analysis efficiently without interruptions.
 
-### Principais Características:
-- 📈 **Análise gráfica em tempo real** de ações dos mercados brasileiro e americano
-- ⚡ **Resposta rápida**: inferior a 5 segundos por requisição
-- 💻 **Interface intuitiva** construída com **Streamlit**
-- 🔐 **Segurança robusta** sem comprometer a experiência do usuário
+### Key Features
+- 📈 **Real-time charting** for stocks from Brazilian and US markets
+- ⚡ **Fast response**: under 5 seconds per request
+- 💻 **Clean UI** built with **Streamlit**
+- 🔐 **Robust security** without compromising user experience
 
-## 🎯 Objetivos SMART
+## 🎯 SMART Goals
 
-| Critério | Descrição |
+| Criterion | Description |
 |----------|-----------|
-| **Específico** | Desenvolver protótipo para extração e análise gráfica de dados de ações |
-| **Mensurável** | Tempo de resposta inferior a 5 segundos, sem pop-ups ou interrupções |
-| **Alcançável** | Utilizando APIs gratuitas como **Yahoo Finance** |
-| **Relevante** | Facilitar análise de dados para investidores iniciantes e intermediários |
-| **Temporal** | Lançar primeira versão em 3 meses |
+| **Specific** | Build a prototype for extracting and charting stock data |
+| **Measurable** | Response time under 5 seconds, no pop-ups or interruptions |
+| **Achievable** | Use free APIs such as **Yahoo Finance** |
+| **Relevant** | Make data analysis accessible for beginner and intermediate investors |
+| **Time-bound** | Release first version in 3 months |
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Tech Stack
 
-| Componente | Ferramentas |
+| Component | Tools |
 |-----------|-----------|
-| **Linguagem** | Python 🐍 |
-| **APIs Financeiras** | Yahoo Finance, Alpha Vantage, Quandl 🔄 |
-| **Framework Web** | Streamlit 🌐 |
-| **Controle de Versão** | Git e GitHub 🧑‍💻 |
-| **Desenvolvimento** | Visual Studio Code, Jupyter Notebook 📑 |
+| **Language** | Python 🐍 |
+| **Financial APIs** | Yahoo Finance, Alpha Vantage, Quandl 🔄 |
+| **Web Framework** | Streamlit 🌐 |
+| **Version Control** | Git and GitHub 🧑‍💻 |
+| **Development** | Visual Studio Code, Jupyter Notebook 📑 |
 
-## 🧑‍🔧 Como Utilizar
+## 🧑‍🔧 How to Use
 
-### Pré-requisitos
-- Git instalado
-- Python 3.8 ou superior
-- pip (gerenciador de pacotes Python)
+### Prerequisites
+- Git installed
+- Python 3.8 or newer
+- pip (Python package manager)
 
-### Passos para Instalação
+### Installation Steps
 
-1. **Clone o repositório**:
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/seu-usuario/analise-acoes-tempo-real.git
    cd analise-acoes-tempo-real
    ```
 
-2. **Crie um ambiente virtual** (opcional mas recomendado):
+2. **Create a virtual environment** (optional but recommended):
    ```bash
    python -m venv venv
    # Windows
@@ -58,68 +58,68 @@ Este projeto foi desenvolvido para criar uma **plataforma de análise de ações
    source venv/bin/activate
    ```
 
-3. **Instale as dependências**:
+3. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Execute a aplicação**:
+4. **Run the application**:
    ```bash
    streamlit run app.py
    ```
 
-5. **Acesse no navegador**:
-   A aplicação abrirá automaticamente em `http://localhost:8501`
+5. **Open in browser**:
+   The app will open automatically at `http://localhost:8501`
 
-## 📅 Roadmap do Desenvolvimento
+## 📅 Development Roadmap
 
-### 🔹 Sprint 1 - Estrutura Base (Semanas 1-3)
-- 🔍 Pesquisa e integração de APIs
-- 🛠️ Configuração do ambiente de desenvolvimento
-- 🎨 Criação da interface inicial
-- 📊 Implementação dos gráficos básicos
+### 🔹 Sprint 1 - Base Structure (Weeks 1-3)
+- 🔍 Research and integrate APIs
+- 🛠️ Setup development environment
+- 🎨 Build initial user interface
+- 📊 Implement basic charts
 
-![Arquitetura do Sistema](https://via.placeholder.com/800x400?text=Arquitetura+API)
+![System Architecture](https://via.placeholder.com/800x400?text=API+Architecture)
 
-### 🔹 Sprint 2 - Otimização (Semanas 4-6)
-- 🔒 Implementação de medidas de segurança
-- 🔄 Otimização das atualizações de gráficos em tempo real
-- ⚙️ Cache e gerenciamento de requisições
-- 🧪 Testes unitários
+### 🔹 Sprint 2 - Optimization (Weeks 4-6)
+- 🔒 Implement security measures
+- 🔄 Optimize real-time chart updates
+- ⚙️ Add caching and request management
+- 🧪 Add unit tests
 
-### 🔹 Sprint 3 - Refinamento (Semanas 7-12)
-- 👨‍💻 Testes de usabilidade com usuários reais
-- 🛠️ Melhorias na interface e segurança
-- 📱 Responsividade para dispositivos móveis
-- 📈 Análise de performance
+### 🔹 Sprint 3 - Refinement (Weeks 7-12)
+- 👨‍💻 Usability testing with real users
+- 🛠️ UI and security improvements
+- 📱 Mobile responsiveness
+- 📈 Performance analysis
 
-## 🏆 Resultados Alcançados
+## 🏆 Achievements
 
-| Resultado | Status |
+| Outcome | Status |
 |-----------|--------|
-| 📊 Protótipo funcional para análise de ações | ✅ Concluído |
-| 🔄 Integração em tempo real com APIs | ✅ Concluído |
-| 💡 Interface gráfica simples e eficaz | ✅ Concluído |
-| 🔐 Implementação discreta e segura | ✅ Concluído |
-| ⚡ Tempo de resposta < 5 segundos | ✅ Validado |
+| 📊 Functional prototype for stock analysis | ✅ Completed |
+| 🔄 Real-time integration with APIs | ✅ Completed |
+| 💡 Simple and effective UI | ✅ Completed |
+| 🔐 Discrete and secure implementation | ✅ Completed |
+| ⚡ Response time < 5 seconds | ✅ Validated |
 
-## 🚧 Próximas Melhorias
+## 🚧 Next Improvements
 
-| Funcionalidade | Prioridade | Descrição |
+| Feature | Priority | Notes |
 |---|---|---|
-| 📧 Sistema de Alertas | Alta | Notificações por email para mudanças de preço |
-| 🌍 Internacionalização | Média | Suporte múltiplas moedas e idiomas |
-| 📱 Otimização Mobile | Alta | Design responsivo para dispositivos móveis |
-| 🤖 Análise por IA | Média | Previsões usando Machine Learning |
-| 📊 Relatórios Avançados | Baixa | Exportação em PDF e Excel |
+| 📧 Alerts system | High | Email notifications for price changes |
+| 🌍 Internationalization | Medium | Support multiple currencies and languages |
+| 📱 Mobile optimization | High | Responsive design for mobile devices |
+| 🤖 AI-based analysis | Medium | Forecasting using Machine Learning |
+| 📊 Advanced reports | Low | Export to PDF and Excel |
 
-## 📬 Contato e Suporte
+## 📬 Contact & Support
 
 <div align="center">
 
-| Plataforma | Link |
+| Platform | Link |
 |-----------|------|
-| 🌐 **Portfólio** | [dataengineer.net.br](https://dataengineer.net.br/) |
+| 🌐 **Portfolio** | [dataengineer.net.br](https://dataengineer.net.br/) |
 | 💻 **GitHub** | [marcos-data-engineer](https://github.com/marcos-data-engineer) |
 | 🔗 **LinkedIn** | [marcos-data-engineer](https://linkedin.com/in/marcos-data-engineer) |
 
@@ -127,24 +127,24 @@ Este projeto foi desenvolvido para criar uma **plataforma de análise de ações
 
 ---
 
-### 📌 Notas Importantes
+### 📌 Notes
 
-- Este projeto está em **desenvolvimento ativo**
-- Contribuições e sugestões são bem-vindas
-- Para reportar bugs ou sugerir melhorias, abra uma **Issue** no GitHub
+- This project is under **active development**
+- Contributions and suggestions are welcome
+- To report bugs or propose improvements, open an **Issue** on GitHub
 
 ---
 
-## ⭐ Gostou do Projeto?
+## ⭐ Like the project?
 
-Se este projeto foi útil para você, não esqueça de dar uma **estrela** ⭐ no [repositório do GitHub](https://github.com/marcos-data-engineer)! Isso ajuda a manter o projeto vivo e motivado.
+If you found this project useful, please give it a **star** ⭐ on the [GitHub repository](https://github.com/marcos-data-engineer)! It helps keep the project active and motivated.
 
-## 📸 Créditos
+## 📸 Credits
 
-- **Imagem do Banner**: [Stocks Image](https://github.com/marcos-data-engineer/dataengineer.github.io/blob/master/images/stocks.jpg) do repositório pessoal
+- **Banner Image**: [Stocks Image](https://github.com/marcos-data-engineer/dataengineer.github.io/blob/master/images/stocks.jpg)
 - **Framework**: [Streamlit](https://streamlit.io/)
-- **Dados**: [Yahoo Finance API](https://finance.yahoo.com/)
+- **Data**: [Yahoo Finance API](https://finance.yahoo.com/)
 
 ---
 
-**Última atualização**: Janeiro de 2026
+**Last updated**: January 2026
